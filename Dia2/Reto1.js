@@ -83,7 +83,7 @@ let photo4 = new Photo ({
 // Modificar fotos: Dado el titulo de una foto y una descripción modificar su descripción.
 
 // function modificarFoto(){
-//     Photo.updateOne({title: photo1.title}, {description: " "})         
+//     Photo.updateOne({title: photo1.title}, {description: "Campos Elisios"})         
 //         .then((info) =>
 //         {
 //             console.log("Documento modificado");
