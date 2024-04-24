@@ -3,21 +3,22 @@ const mongoose = require("mongoose");
 const StudentSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
-    marks: [],
-    subjects: [],
-    teachers: []
+    marks: []
 })
 const MarkSchema = new mongoose.Schema({
     date: Number,
-    mark: Number
+    mark: Number,
+    subjects: []
 })
 const SubjectSchema = new mongoose.Schema({
-    title: String
+    title: String,
+    teachers: []
+    
 })
 const TeacherSchema = new mongoose.Schema({
     firstname: String,
     lastname: String,
-    groups: String
+    groups: String,
 })
 
 const student = mongoose.model("Student", StudentSchema, "studentsReto2");
