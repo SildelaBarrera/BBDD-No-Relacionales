@@ -5,7 +5,7 @@ const PhotoModel = require("../model/photo")
 
 function getPhoto(request, response){
         // console.log(request.query.name)
-        PhotoModel.aggregate([{$match: {name: request.body.name}}])         
+        PhotoModel.find({name: request.query.name})         
         .then(function(photo)
         { 
             console.log(photo)
