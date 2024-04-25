@@ -148,21 +148,42 @@ let student4 = new models.student ({
 
 // Mostrar por consola:
 // Todas las notas de un alumno.
-console.log(student2.marks[0].mark , 
-            student2.marks[1].mark, 
-            student2.marks[2].mark)
+
+models.student.find({ firstname: student2.firstname})
+    .then(function (students) {
+        students.forEach(student => {
+            student.marks.forEach(mark => {
+                console.log(mark.mark)
+            })
+        })
+    })
 
 // Todos las asignaturas de un alumno.
-console.log(student3.marks[0].subjects[0].title,
-            student3.marks[1].subjects[0].title,
-            student3.marks[2].subjects[0].title,)
+
+models.student.find({ firstname: student3.firstname})
+    .then(function (students) {
+        students.forEach(student => {
+            student.marks.forEach(mark => {
+                mark.subjects.forEach(subject => {
+                    console.log(subject.title)
+                })    
+            })
+        })
+    })
 
 // Todos los profesores de un alumno.
-console.log(student4.marks[0].subjects[0].teachers[0].firstname,
-            student4.marks[0].subjects[0].teachers[1].firstname,
-            student4.marks[1].subjects[0].teachers[0].firstname,
-            student4.marks[1].subjects[0].teachers[1].firstname,
-            student4.marks[2].subjects[0].teachers[0].firstname,
-            student4.marks[2].subjects[0].teachers[1].firstname)
+
+models.student.find({ firstname: student4.firstname})
+    .then(function (students) {
+        students.forEach(student => {
+            student.marks.forEach(mark => {
+                mark.subjects.forEach(subject => {
+                    subject.teachers.forEach(teacher => {
+                        console.log(teacher.firstname);
+                    })   
+                })    
+            })
+        })
+    })
 
 
